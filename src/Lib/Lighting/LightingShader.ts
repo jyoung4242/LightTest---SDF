@@ -287,7 +287,7 @@ float calculateShadow(vec2 point, vec2 lightPos, Occluder occluder) {
         }
                 
         // March forward along the ray
-        currentPos += rayDir * stepSize;
+        currentPos += rayDir * (stepSize * 0.9);
         distanceTraveled = length(currentPos - lightPos);
     }
     

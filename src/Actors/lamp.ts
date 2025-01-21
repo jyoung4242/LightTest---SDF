@@ -24,8 +24,8 @@ export class Lamp extends Actor {
     this.pLight = new PointLight({
       pos: new Vector(this.width / 2, this.height / 2),
       color: LampColor,
-      intensity: 0.01,
-      falloff: 0.015,
+      intensity: 0.015,
+      falloff: 0.25,
       anchor: Vector.Zero,
     });
     this.addChild(this.pLight);

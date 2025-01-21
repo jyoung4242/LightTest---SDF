@@ -37,5 +37,6 @@ game.graphicsContext.addPostProcessor(myPP);
 
 let room = new Room();
 game.add(room);
+room.addSpotlight();
 room.addCrate();
 room.addLamp();
