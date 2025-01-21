@@ -224,10 +224,15 @@ float calculateShadow(vec2 point, vec2 lightPos, Occluder occluder) {
     vec2 currentPos = lightPos;
     float distanceTraveled = 0.0;
     bool hitOccluder = false;
+
+    int stepCounter = 0;
     
     // Continue marching until we reach the end point
     while(distanceTraveled < rayLength) {
-
+        stepCounter++;
+        if (stepCounter > 20) {
+            return shadow;
+        }
         vec2 relativePos = currentPos - occluder.position;
         vec2 rotatedRelativePos = rotate2D(occluder.rotation) * relativePos; 
         vec2 normalizedPos = rotatedRelativePos / occluder.size;

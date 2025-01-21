@@ -14,8 +14,8 @@ export class SpotLight extends Actor {
   constructor(pos: Vector, public startAngle: number, public endAngle: number, speed: number) {
     super({
       pos,
-      width: 4,
-      height: 9,
+      width: 9,
+      height: 20,
       rotation: toRadians(startAngle),
       z: 1,
       anchor: Vector.Zero,
@@ -24,18 +24,18 @@ export class SpotLight extends Actor {
     this.sweepSpeed = speed;
 
     this.pl = new PointLight({
-      pos: new Vector(0, 8),
+      pos: new Vector(4.5, 19.0),
       color: Color.fromHex("#e6d65b"),
-      intensity: 0.15,
-      falloff: 0.5,
+      intensity: 0.025,
+      falloff: 0.4,
       anchor: Vector.Zero,
     });
 
     //@ts-ignore
     this.occ = new Occluder({
-      pos: new Vector(0, 8),
+      pos: new Vector(4.5, 18),
       width: 4,
-      height: 9,
+      height: 4,
       //radius: 18.0,
       rotation: this.rotation,
       shape: SDFShapes.SpotLight,
@@ -50,8 +50,6 @@ export class SpotLight extends Actor {
   }
 
   onPreUpdate(engine: Engine, elapsed: number): void {
-    console.log(this.rotation);
-
     if (this.direction === "clockwise") {
       this.rotation += this.sweepSpeed;
       if (this.rotation >= toRadians(this.endAngle)) {

@@ -19,8 +19,8 @@ export class Crate extends Actor {
     //@ts-ignore
     this.occ = new Occluder({
       pos: new Vector(14.5, 16.0),
-      width: 29.0,
-      height: 36.0,
+      width: 24.0,
+      height: 32.0,
       //radius: 18.0,
       rotation: this.rotation,
       shape: SDFShapes.EmptyBox,
